@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "export_revision": 1,
+  "exported_at": "2026-11-09T16:15:00Z",
+  "game": {
+    "game_id": "0e80e110-2b44-4ed0-9ad1-0030c86dad10",
+    "tournament_id": "tournament-2026",
+    "configuration_version": 1,
+    "home_team_id": "team-home",
+    "away_team_id": "team-away",
+    "game_date": "2026-11-09",
+    "overtime_periods": 1,
+    "status": "completed"
+  },
+  "events": [
+    {"event_id":"10000000-0000-4000-8000-000000000001","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":1,"recorded_at":"2026-11-09T14:00:00Z","event_type":"player_participation_marked","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-01"},
+    {"event_id":"10000000-0000-4000-8000-000000000002","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":2,"recorded_at":"2026-11-09T14:00:01Z","event_type":"player_participation_marked","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-02"},
+    {"event_id":"10000000-0000-4000-8000-000000000003","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":3,"recorded_at":"2026-11-09T14:00:02Z","event_type":"player_participation_marked","actor_id":"scorer-jordan","team_id":"team-away","player_id":"player-away-01"},
+    {"event_id":"10000000-0000-4000-8000-000000000004","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":4,"recorded_at":"2026-11-09T14:01:12Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-01","statistic_kind":"two_point_field_goal","outcome":"made"},
+    {"event_id":"10000000-0000-4000-8000-000000000005","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":5,"recorded_at":"2026-11-09T14:01:30Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-away","player_id":"player-away-01","statistic_kind":"three_point_field_goal","outcome":"missed"},
+    {"event_id":"10000000-0000-4000-8000-000000000006","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":6,"recorded_at":"2026-11-09T14:01:31Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-02","statistic_kind":"defensive_rebound"},
+    {"event_id":"10000000-0000-4000-8000-000000000007","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":7,"recorded_at":"2026-11-09T14:03:10Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-01","statistic_kind":"free_throw","outcome":"made"},
+    {"event_id":"10000000-0000-4000-8000-000000000008","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":8,"recorded_at":"2026-11-09T14:04:22Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-02","statistic_kind":"three_point_field_goal","outcome":"missed"},
+    {"event_id":"10000000-0000-4000-8000-000000000009","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":9,"recorded_at":"2026-11-09T14:04:25Z","event_type":"event_voided","actor_id":"scorer-jordan","target_event_id":"10000000-0000-4000-8000-000000000008"},
+    {"event_id":"10000000-0000-4000-8000-000000000010","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":10,"recorded_at":"2026-11-09T14:07:10Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-home","player_id":"player-home-01","statistic_kind":"free_throw","outcome":"made"},
+    {"event_id":"10000000-0000-4000-8000-000000000011","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":11,"recorded_at":"2026-11-09T14:08:00Z","event_type":"event_voided","actor_id":"scorer-jordan","target_event_id":"10000000-0000-4000-8000-000000000005"},
+    {"event_id":"10000000-0000-4000-8000-000000000012","game_id":"0e80e110-2b44-4ed0-9ad1-0030c86dad10","sequence":12,"recorded_at":"2026-11-09T14:08:01Z","event_type":"stat_recorded","actor_id":"scorer-jordan","team_id":"team-away","player_id":"player-away-01","statistic_kind":"three_point_field_goal","outcome":"made"}
+  ]
+}

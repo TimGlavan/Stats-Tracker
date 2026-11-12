@@ -1,0 +1,4 @@
+# Development and Phase 1 test dependencies.
+pytest>=8,<9
+jsonschema>=4.23,<5
+reportlab>=4,<5

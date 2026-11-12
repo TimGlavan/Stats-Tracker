@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basketball-stats-tracker"
+version = "0.1.0"
+description = "Offline basketball tournament statistics tracker"
+requires-python = ">=3.12"
+dependencies = [
+  "jsonschema>=4.23,<5",
+  "reportlab>=4,<5"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9"
+]
+
+[project.scripts]
+stats-tracker-demo = "stats_tracker.tk_app:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "tournament_id": "tournament-2026",
+  "name": "Example Basketball Tournament 2026",
+  "configuration_version": 1,
+  "teams": [
+    {
+      "team_id": "team-home",
+      "name": "Home Hawks",
+      "abbreviation": "HAWKS",
+      "primary_color": "#123456",
+      "secondary_color": "#FFFFFF",
+      "players": [
+        {
+          "player_id": "player-home-01",
+          "name": "Alex Morgan",
+          "jersey_number": "4"
+        },
+        {
+          "player_id": "player-home-02",
+          "name": "Jordan Lee",
+          "jersey_number": "12"
+        },
+        {
+          "player_id": "player-home-03",
+          "name": "Sam Taylor",
+          "jersey_number": "00"
+        }
+      ]
+    },
+    {
+      "team_id": "team-away",
+      "name": "Away Eagles",
+      "abbreviation": "EAGLES",
+      "primary_color": "#987654",
+      "players": [
+        {
+          "player_id": "player-away-01",
+          "name": "Casey Smith",
+          "jersey_number": "7"
+        }
+      ]
+    }
+  ]
+}

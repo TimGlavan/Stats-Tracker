@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "export_revision": 1,
+  "exported_at": "2026-11-09T16:15:00Z",
+  "game": {
+    "game_id": "0e80e110-2b44-4ed0-9ad1-0030c86dad10",
+    "tournament_id": "tournament-2026",
+    "configuration_version": 1,
+    "home_team_id": "team-home",
+    "away_team_id": "team-away",
+    "game_date": "2026-11-09",
+    "overtime_periods": 0,
+    "status": "completed"
+  },
+  "events": [
+    {
+      "event_id": "20000000-0000-4000-8000-000000000001",
+      "game_id": "0e80e110-2b44-4ed0-9ad1-0030c86dad10",
+      "sequence": 1,
+      "recorded_at": "2026-11-09T14:00:00Z",
+      "event_type": "stat_recorded",
+      "team_id": "team-home",
+      "player_id": "player-home-01",
+      "statistic_kind": "assist",
+      "outcome": "made"
+    }
+  ]
+}

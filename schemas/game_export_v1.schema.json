@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stats-tracker.local/schemas/game_export_v1.schema.json",
+  "title": "Basketball tournament game export, version 1",
+  "description": "Structural schema for a portable game export. Cross-event rules are validated by the shared application logic.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "export_revision", "exported_at", "game", "events"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "export_revision": {"type": "integer", "minimum": 1},
+    "exported_at": {"$ref": "#/$defs/utcTimestamp"},
+    "game": {"$ref": "#/$defs/game"},
+    "events": {"type": "array", "items": {"$ref": "#/$defs/event"}}
+  },
+  "$defs": {
+    "identifier": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "utcTimestamp": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "game": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "game_id", "tournament_id", "configuration_version", "home_team_id",
+        "away_team_id", "game_date", "overtime_periods", "status"
+      ],
+      "properties": {
+        "game_id": {"$ref": "#/$defs/identifier"},
+        "tournament_id": {"$ref": "#/$defs/identifier"},
+        "configuration_version": {"type": "integer", "minimum": 1},
+        "home_team_id": {"$ref": "#/$defs/identifier"},
+        "away_team_id": {"$ref": "#/$defs/identifier"},
+        "game_date": {"type": "string", "format": "date"},
+        "overtime_periods": {"type": "integer", "minimum": 0},
+        "status": {"enum": ["in_progress", "completed"]}
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "game_id", "sequence", "recorded_at", "event_type"],
+      "properties": {
+        "event_id": {"$ref": "#/$defs/identifier"},
+        "game_id": {"$ref": "#/$defs/identifier"},
+        "sequence": {"type": "integer", "minimum": 1},
+        "recorded_at": {"$ref": "#/$defs/utcTimestamp"},
+        "event_type": {
+          "enum": ["stat_recorded", "player_participation_marked", "event_voided"]
+        },
+        "actor_id": {"$ref": "#/$defs/identifier"},
+        "team_id": {"$ref": "#/$defs/identifier"},
+        "player_id": {"$ref": "#/$defs/identifier"},
+        "statistic_kind": {
+          "enum": [
+            "two_point_field_goal", "three_point_field_goal", "free_throw",
+            "offensive_rebound", "defensive_rebound", "assist", "steal", "turnover"
+          ]
+        },
+        "outcome": {"enum": ["made", "missed"]},
+        "target_event_id": {"$ref": "#/$defs/identifier"}
+      },
+      "oneOf": [
+        {
+          "title": "Stat recorded event",
+          "properties": {"event_type": {"const": "stat_recorded"}},
+          "required": ["team_id", "player_id", "statistic_kind"],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "statistic_kind": {
+                    "enum": ["two_point_field_goal", "three_point_field_goal", "free_throw"]
+                  }
+                },
+                "required": ["statistic_kind"]
+              },
+              "then": {"required": ["outcome"]},
+              "else": {"not": {"required": ["outcome"]}}
+            },
+            {"not": {"required": ["target_event_id"]}}
+          ]
+        },
+        {
+          "title": "Player participation event",
+          "properties": {"event_type": {"const": "player_participation_marked"}},
+          "required": ["team_id", "player_id"],
+          "not": {
+            "anyOf": [
+              {"required": ["statistic_kind"]},
+              {"required": ["outcome"]},
+              {"required": ["target_event_id"]}
+            ]
+          }
+        },
+        {
+          "title": "Event voided event",
+          "properties": {"event_type": {"const": "event_voided"}},
+          "required": ["target_event_id"],
+          "not": {
+            "anyOf": [
+              {"required": ["team_id"]},
+              {"required": ["player_id"]},
+              {"required": ["statistic_kind"]},
+              {"required": ["outcome"]}
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
